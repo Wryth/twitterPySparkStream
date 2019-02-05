@@ -12,7 +12,7 @@ sc = SparkContext(conf=conf)
 ssc = StreamingContext(sc, 5)  # 5 second batch interval
 
 IP = "localhost"  # Replace with your stream IP
-Port = 5555  # Replace with your stream port
+Port = 9009  # Replace with your stream port
 
 lines = ssc.socketTextStream(IP, Port)
 lines.pprint()  # Print tweets we find to the console
@@ -65,7 +65,7 @@ def sendData(c_socket):
 if __name__ == "__main__":
     s = socket.socket()  # Create a socket object
     host = "localhost"  # Get local machine name
-    port = 5555  # Reserve a port for your service.
+    port = 9009  # Reserve a port for your service.
     s.bind((host, port))  # Bind to the port
 
     print("Listening on port: %s" % str(port))

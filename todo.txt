@@ -1,0 +1,3 @@
+Maps in plotly:
+https://plot.ly/python/scatter-plots-on-maps/
+https://plot.ly/python/maps/

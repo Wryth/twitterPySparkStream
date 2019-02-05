@@ -1,0 +1,40 @@
+/* General styling */
+*{
+	font-family: Quicksand;
+}
+
+body{
+	margin: 0px;
+	padding: 0px;
+}
+
+h1 {
+	text-align: center;
+}
+
+/*********************************
+/* Map Styling */
+#map {
+	margin: 0 auto 0 auto;
+	height: 50%;
+	width: 90%;
+}
+
+
+.buttonGroup .buttons {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    width: flex;
+    font-size: 16px;
+    cursor: pointer;
+    float: left;
+}
+
+.buttonGroup .buttons:hover {
+    background-color: #3e8e41;
+}
