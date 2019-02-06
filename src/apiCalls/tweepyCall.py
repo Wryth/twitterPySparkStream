@@ -61,6 +61,7 @@ class StdOutListener(StreamListener):
                                     'tweet_location': XY,
                                 }
                             )
+                            print(status.text)
                             dump_json(tweets)
                             break
                 else:
@@ -76,6 +77,7 @@ class StdOutListener(StreamListener):
                                     'tweet_location': XY,
                                 }
                             )
+                            print(status.text)
                             dump_json(tweets)
                             break
 
@@ -86,11 +88,13 @@ def dump_json(tweet):
         json.dump(tweet, write_file, indent=2, ensure_ascii=False)
 
 
-# california = [-124.48, 32.53, -114.13, 42.01]
-# usa = [-126.9,25.6,-65.6,49.2]
+# Locations
+la_sd = [-118.24368, 34.05223, -117.1611, 32.7157]
+california = [-124.48, 32.53, -114.13, 42.01]
+usa = [-126.9, 25.6, -65.6, 49.2]
 
 # initializes stream, filters on geobox location (4 point coordinate)
-def main():
+def main(locationBox=[-118.24368, 34.05223, -117.1611, 32.7157]):
     l = StdOutListener()
     auth = OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
@@ -105,7 +109,7 @@ def main():
             else:
                 print("searching..")
             keyWordList.append(keyword.split(', '))
-            stream.filter(locations=[-124.48, 32.53, -114.13, 42.01], async=False, stall_warnings=True)
+            stream.filter(locations=locationBox, async=False, stall_warnings=True)
             break
         except Exception:
             nsecs = random.randint(20, 30)
@@ -114,4 +118,5 @@ def main():
 
 # Starts script
 if __name__ == '__main__':
-    main()
+    locationBox = la_sd
+    main(locationBox)

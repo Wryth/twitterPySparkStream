@@ -6,3 +6,13 @@ https://plot.ly/python/maps/
 https://dash.plot.ly/getting-started
 
 https://plot.ly/python/streaming-tutorial/
+
+
+#Do this:
+#Cluster, wordcount, show top words associated with each cluster.
+-Cluster data.
+-wordCount.
+-Create legend with cluster nr =[topwords list]
+-Consider topic modeling instead of word count.
+
+#Topic model the total data, then cluster

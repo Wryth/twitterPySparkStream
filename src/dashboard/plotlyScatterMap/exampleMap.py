@@ -49,5 +49,5 @@ layout = dict(
         ),
     )
 
-fig = dict( data=data, layout=layout )
-py.plot( fig, validate=False, filename='d3-airports' )
+fig = dict(data=data, layout=layout)
+py.plot(fig, validate=False, filename='d3-airports')
