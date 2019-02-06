@@ -1,3 +1,8 @@
 Maps in plotly:
 https://plot.ly/python/scatter-plots-on-maps/
 https://plot.ly/python/maps/
+
+#dash "shiny of python"
+https://dash.plot.ly/getting-started
+
+https://plot.ly/python/streaming-tutorial/
