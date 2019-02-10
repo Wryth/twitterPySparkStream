@@ -33,3 +33,16 @@ def wordCountDemo():
         .collect()
     print(result)
     sc.stop()
+
+
+#DEMO wordcount
+def wordCountDemo2():
+    sc = SparkContext("local", "count app")
+    text_file = sc.parallelize("hello hello are there any nice kids here? or should i take my presents to another home and look for kids".split())
+    text_file.collect()
+
+    counts = text_file.map(lambda word: (word, 1)) \
+                 .reduceByKey(lambda a, b: a + b)
+
+    counts.collect()
+

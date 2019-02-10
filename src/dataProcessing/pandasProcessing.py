@@ -34,7 +34,7 @@ def textCleaing(pdf):
 # Create count numbers of hastags used in each tweet.
 def countHashtags(pdf):
     pdf['hastags'] = pdf['tweet_text'].apply(lambda x: len([x for x in x.split() if x.startswith('#')]))
-    pdf[['tweet_text','hastags']].head()
+    pdf[['tweet_text', 'hastags']].head()
     pdf['hastags'].max()
     pdf["hastags"].sum()
     return pdf
