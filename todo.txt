@@ -16,3 +16,14 @@ https://plot.ly/python/streaming-tutorial/
 -Consider topic modeling instead of word count.
 
 #Topic model the total data, then cluster
+
+
+
+#cluster inference
+if a tweet without geolocation has matching topwords/topic
+put it under the same cluster.
+
+
+# Stopword remover stuff
+https://spark.apache.org/docs/2.3.1/api/python/pyspark.ml.html#pyspark.ml.feature.StopWordsRemover
+https://stackoverflow.com/questions/43623400/how-to-add-custom-stop-word-list-to-stopwordsremover

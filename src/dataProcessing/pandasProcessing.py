@@ -60,7 +60,6 @@ def main():
     pdf = textCleaing(pdf)
     pdf = countHashtags(pdf)
     pdf = filterKeyWord(pdf)
-    print("derp")
     return pdf
 
 pdf = main()

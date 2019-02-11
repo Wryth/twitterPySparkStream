@@ -8,18 +8,21 @@ mapbox_access_token = plotlyConfigs.mapbox_access_token
 df = result_pdf
 
 # each class with the color it is given
-scl = [[0, "rgb(5, 10, 172)"], [1, "rgb(40, 60, 190)"], [2, "rgb(70, 100, 245)"],\
-    [3, "rgb(90, 120, 245)"], [4, "rgb(106, 137, 247)"], [5, "rgb(89,85,36)"], \
-       [6, "rgb(12,44,142)"], [7, "rgb(112,26,96)"], [8, "rgb(79,60,129)"], \
-       [9, "rgb(45,224,126)"], [10, "rgb(107,132,56)"], [11, "rgb(181,120,106)"], \
+scl = [[0, "rgb(5, 10, 172)"], [1, "rgb(40, 60, 190)"], [2, "rgb(70, 100, 245)"],
+       [3, "rgb(90, 120, 245)"], [4, "rgb(106, 137, 247)"], [5, "rgb(89,85,36)"],
+       [6, "rgb(12,44,142)"], [7, "rgb(112,26,96)"], [8, "rgb(79,60,129)"],
+       [9, "rgb(45,224,126)"], [10, "rgb(107,132,56)"], [11, "rgb(181,120,106)"],
        [12, "rgb(49,111,106)"], [13, "rgb(0,0,0)"], [14, "rgb(93,72,52)"], [15, "rgb(23,207,195)"]]
+
+df['text'] = df['tweet_text'] + "<br>Cluster:" + df["prediction"].astype(str) +\
+    "<br>Date:" + df["tweet_date"].astype(str) + "<br>Top Cluster Word:" + df["word"] + "=" + df["maxCount"].astype(str)
 
 data = [dict(
         type='scattergeo',
         locationmode='USA-states',
         lon=df["lat"],  # they seems to be flipped
         lat=df["long"],  #
-        text=df['tweet_text'],
+        text=df['text'],
         mode='markers',
         marker=dict(
             size=8,
@@ -39,8 +42,8 @@ data = [dict(
         )]
 
 layout = dict(
-        title='Tweet samples localized at california<br>(Hover for tweet text)',
-        colorbar=True,
+        title='Twitter samples localized over USA<br>(Hover for tweet text)',
+        #colorbar=True,
         geo=dict(
             scope='usa',
             projection=dict(type='albers usa'),
@@ -51,7 +54,10 @@ layout = dict(
             countrywidth=0.5,
             subunitwidth=0.5
         ),
+        legend=dict(
+            font=dict(size=11),
+    )
     )
 
 fig = dict(data=data, layout=layout)
-py.plot(fig, validate=False, filename='california_tweets')
+py.plot(fig, validate=False, filename='USA_tweets')
